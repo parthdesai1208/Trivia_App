@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.parthdesai1208.triviaapp.view.SharedViewModel" />
+        <variable
+            name="constant"
+            type="com.parthdesai1208.triviaapp.utils.ConstantKt" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -32,26 +41,31 @@
 
         <RadioButton
             android:id="@+id/rdb1"
+            android:checked="@{viewModel.cricketer == constant.option1 ? true : false}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/sachin_tendulkar" />
 
         <RadioButton
             android:id="@+id/rdb2"
+            android:checked="@{viewModel.cricketer == constant.option2 ? true : false}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/virat_kohli" />
 
         <RadioButton
             android:id="@+id/rdb3"
+            android:checked="@{viewModel.cricketer == constant.option3 ? true : false}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/adam_gilchirst" />
 
         <RadioButton
             android:id="@+id/rdb4"
+            android:checked="@{viewModel.cricketer == constant.option4 ? true : false}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/jacques_kallis" />
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

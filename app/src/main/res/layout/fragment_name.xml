@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.parthdesai1208.triviaapp.view.SharedViewModel" />
+    </data>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,6 +30,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etNameFragment"
                 android:layout_width="match_parent"
+                android:text="@{viewModel.userName}"
                 android:imeOptions="actionNext"
                 android:layout_height="match_parent"
                 android:inputType="textPersonName" />
@@ -31,3 +38,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>

@@ -3,7 +3,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="next">Next</string>
-    <string name="hintETNameFragment">What is your name?</string>
+    <string name="hintETNameFragment">What\'s your good name?</string>
     <string name="back">Back</string>
     <string name="questionCricketFragment">Who is the best cricketer in the world?</string>
     <string name="questionFlagFragment">What are the colors in the national flag?</string>

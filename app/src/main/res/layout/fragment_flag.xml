@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.parthdesai1208.triviaapp.view.SharedViewModel" />
+        <variable
+            name="constant"
+            type="com.parthdesai1208.triviaapp.utils.ConstantKt" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -27,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:checked="@{viewModel.flagColor.toString().contains(constant.cb1) ? true : false}"
         android:text="@string/white"
         app:layout_constraintBottom_toTopOf="@+id/cB2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:checked="@{viewModel.flagColor.toString().contains(constant.cb2) ? true : false}"
         android:text="@string/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +62,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/orange"
+        android:checked="@{viewModel.flagColor.toString().contains(constant.cb3) ? true : false}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cB2" />
@@ -62,8 +74,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/green"
+        android:checked="@{viewModel.flagColor.toString().contains(constant.cb4) ? true : false}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cB3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

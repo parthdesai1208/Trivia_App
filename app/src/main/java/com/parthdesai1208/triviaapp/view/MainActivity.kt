@@ -3,6 +3,7 @@ package com.parthdesai1208.triviaapp.view
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.parthdesai1208.triviaapp.R
@@ -14,8 +15,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_cricket.*
 import kotlinx.android.synthetic.main.fragment_flag.*
 import kotlinx.android.synthetic.main.fragment_name.*
-import kotlinx.coroutines.*
-import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     private var pref: PreferenceProvider? = null
     private var dao: AppDataBase? = null
     private val uiScope = CoroutineScope(Dispatchers.Main + Job())
-
+    private var viewModel : SharedViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         pref = PreferenceProvider(baseContext)
         dao = AppDataBase.invoke(baseContext)
+        viewModel = ViewModelProvider(this).get(SharedViewModel::class.java)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             id = destination.id
@@ -63,6 +67,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.nameFragment -> {
                     if (etNameFragment.text?.trim()?.isNotEmpty()!!) {
                         pref!!.saveName(etNameFragment.text?.trim().toString())
+                        viewModel!!.saveName(etNameFragment.text?.trim().toString())
                         navController.navigate(R.id.action_nameFragment_to_cricketFragment)
                     }
                 }
@@ -71,18 +76,22 @@ class MainActivity : AppCompatActivity() {
                     when (radioGroupCriFrag.checkedRadioButtonId) {
                         R.id.rdb1 -> {
                             pref!!.saveCricketer(option1)
+                            viewModel!!.saveCricketer(option1)
                             navController.navigate(R.id.action_cricketFragment_to_flagFragment)
                         }
                         R.id.rdb2 -> {
                             pref!!.saveCricketer(option2)
+                            viewModel!!.saveCricketer(option2)
                             navController.navigate(R.id.action_cricketFragment_to_flagFragment)
                         }
                         R.id.rdb3 -> {
                             pref!!.saveCricketer(option3)
+                            viewModel!!.saveCricketer(option3)
                             navController.navigate(R.id.action_cricketFragment_to_flagFragment)
                         }
                         R.id.rdb4 -> {
                             pref!!.saveCricketer(option4)
+                            viewModel!!.saveCricketer(option4)
                             navController.navigate(R.id.action_cricketFragment_to_flagFragment)
                         }
                     }
